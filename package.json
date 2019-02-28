@@ -36,6 +36,10 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "preclean":  "mkdir -p public/.git && mv public/.git public.git",
+    "postclean": "mkdir -p public public.git && mv public.git public/.git",
+    "disabled_postbuild": "cd public && git add -A && git commit -m \"New build from source/$npm_package_gitHead\"",
+
     "start": "npm run develop",
     "clean": "rimraf .cache public",
     "build": "npm run clean && gatsby build",
