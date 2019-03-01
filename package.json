@@ -18,6 +18,7 @@
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.1.15",
     "gatsby-transformer-sharp": "^2.1.9",
+    "gh-pages": "~2.0.1",
     "lodash": "^4.17.5",
     "lodash-webpack-plugin": "^0.11.4",
     "netlify-cms": "^2.5.0",
@@ -31,15 +32,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "preclean":  "mkdir -p public/.git && mv public/.git public.git",
-    "postclean": "mkdir -p public public.git && mv public.git public/.git",
-    "disabled_postbuild": "cd public && git add -A && git commit -m \"New build from source/$npm_package_gitHead\"",
-
     "start": "npm run develop",
     "clean": "rimraf .cache public",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
+    "deploy": "npm run build && npm run gh-pages",
+    "gh-pages": "gh-pages -d public -b master --message 'Update build' --user 'Auto <noreply@autonomens.fr>'",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
