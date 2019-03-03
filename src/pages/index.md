@@ -2,8 +2,8 @@
 templateKey: 'index-page'
 title: 'Des outils simples d’utilisation pour résoudre des problèmes concrets'
 image: /img/home-jumbotron.jpg
-heading: Des outils pour vos projets
-subheading: Une suite d'outils pour vos projets
+heading: Une plateforme pour vos projets
+subheading: Une plateforme pour vos projets
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,

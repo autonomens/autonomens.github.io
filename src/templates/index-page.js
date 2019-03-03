@@ -32,15 +32,13 @@ export const IndexPageTemplate = ({
           height: '150px',
           lineHeight: '1',
           justifyContent: 'space-around',
-          alignItems: 'left',
+          alignItems: 'center',
           flexDirection: 'column'
         }}
       >
         <h1
           className="has-text-weight-bold"
           style={{
-            //boxShadow: '#F9A93E 0.5rem 0px 0px, #F9A93E -0.5rem 0px 0px',
-            //boxShadow: '#F9A93E 2rem 0px 0px',
             backgroundColor: 'rgb(3, 3, 3, .6)',
             margin: '0 20%',
             color: '#EEE',
@@ -52,6 +50,15 @@ export const IndexPageTemplate = ({
         >
           {title}
         </h1>
+        <div
+          style={{
+            marginTop: '20px'
+          }}
+        >
+          <Link className="btn" to="/login">
+            Accéder à la plateforme
+          </Link>
+        </div>
       </div>
     </div>
     <section className="section section--gradient">
