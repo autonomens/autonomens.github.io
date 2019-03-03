@@ -1,9 +1,9 @@
 ---
 templateKey: 'index-page'
-title: 'Autonomens vous accompagne'
-image: /img/home-jumbotron.jpg
+title: 'Des outils simples d’utilisation pour résoudre des problèmes concrets'
+image: /img/home-jumbotron.png
 heading: Une suite d'application pour vos projets
-subheading: Des outils simples d’utilisation pour résoudre des problèmes concrets
+subheading: Une suite d'application pour vos projets
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
