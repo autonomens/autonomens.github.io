@@ -7,6 +7,7 @@ const FeatureGrid = ({ gridItems }) => (
     {gridItems.map(item => (
       <div key={item.text} className="column is-6">
         <section className="section">
+          <h3>{item.title}</h3>
           <div className="has-text-centered">
             <div
               style={{
@@ -29,7 +30,8 @@ FeatureGrid.propTypes = {
   gridItems: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-      text: PropTypes.string
+      text: PropTypes.string,
+      title: PropTypes.string
     })
   )
 };
