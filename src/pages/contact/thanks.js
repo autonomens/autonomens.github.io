@@ -1,15 +1,17 @@
-import React from 'react'
-import Layout from '../../components/Layout'
+import React from 'react';
+import Layout from '../../components/Layout';
 
 export default () => (
   <Layout>
     <section className="section">
       <div className="container">
         <div className="content">
-          <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
+          <h1>Merci!</h1>
+          <p>
+            Votre message a été envoyé. Nous vous répondons dès que possible.
+          </p>
         </div>
       </div>
     </section>
   </Layout>
-)
+);

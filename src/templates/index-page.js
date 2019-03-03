@@ -37,14 +37,17 @@ export const IndexPageTemplate = ({
         }}
       >
         <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-2-widescreen"
+          className="has-text-weight-bold"
           style={{
-            boxShadow: '#F9A93E 0.5rem 0px 0px, #F9A93E -0.5rem 0px 0px',
+            //boxShadow: '#F9A93E 0.5rem 0px 0px, #F9A93E -0.5rem 0px 0px',
             //boxShadow: '#F9A93E 2rem 0px 0px',
-            backgroundColor: 'rgb(249, 169, 62, .93)',
-            color: '#3B7889',
+            backgroundColor: 'rgb(3, 3, 3, .6)',
+            margin: '0 20%',
+            color: '#EEE',
             lineHeight: '1',
-            padding: '0.25em'
+            padding: '0.25em',
+            textAlign: 'center',
+            fontSize: '3rem'
           }}
         >
           {title}
@@ -76,22 +79,11 @@ export const IndexPageTemplate = ({
                 <Features gridItems={intro.blurbs} />
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
+                    <Link className="btn" to="/contact">
+                      Nous contacter
                     </Link>
                   </div>
                 </div>
-                {/*<div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
-                  </Link>
-                  </div>
-        </div>*/}
               </div>
             </div>
           </div>
