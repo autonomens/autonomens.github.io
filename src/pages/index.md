@@ -3,7 +3,7 @@ templateKey: 'index-page'
 title: 'Autonomens vous accompagne'
 image: /img/home-jumbotron.jpg
 heading: Une suite d'application pour vos projets
-subheading: Support sustainable farming while enjoying a cup
+subheading: Des outils simples d’utilisation pour résoudre des problèmes concrets
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
@@ -12,7 +12,7 @@ description: >-
 mainpitch:
   title: Pourquoi autonomens
   description: >
-      Lorem ipsum dolor
+    Lorem ipsum dolor
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -103,4 +103,3 @@ pricing:
       plan: Custom
       price: '??'
 ---
-
