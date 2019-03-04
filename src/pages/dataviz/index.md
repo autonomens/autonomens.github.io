@@ -1,7 +1,8 @@
 ---
-templateKey: 'about-page'
+templateKey: 'theme-page'
 path: /dataviz
 title: Visualiser vos données
+image: /img/chart.png
 ---
 
 Le module d’exploration des données spatiales de Datatheca vous permet de créer des représentations cartographiques et de traiter des données spatiales.

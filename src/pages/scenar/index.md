@@ -1,7 +1,8 @@
 ---
-templateKey: 'about-page'
+templateKey: 'theme-page'
 path: /scenar
 title: Scénariser vos données
+image: /img/map.png
 ---
 
 Datatheca propose un outil de valorisation de vos données pour réaliser des parcours thématiques, des animations mettant en valeur des commerces, des lieux, des points d’intérêts,…

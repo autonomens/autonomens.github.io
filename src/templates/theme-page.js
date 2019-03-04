@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
-export const ThemePageTemplate = ({ title, content, contentComponent }) => {
+export const ThemePageTemplate = ({ title, content, image, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -12,12 +13,13 @@ export const ThemePageTemplate = ({ title, content, contentComponent }) => {
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <div className="section">
+              <div style={{width: '30%'}}>
+                <PreviewCompatibleImage imageInfo={{image: image}}/>
+              </div>
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
               <PageContent className="content" content={content} />
-            </div>
           </div>
         </div>
       </div>
@@ -33,6 +35,7 @@ ThemePageTemplate.propTypes = {
 
 const ThemePage = ({ data }) => {
   const { markdownRemark: post } = data
+  console.log(post.frontmatter.image)
 
   return (
     <Layout>
@@ -40,6 +43,7 @@ const ThemePage = ({ data }) => {
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
+        image={post.frontmatter.image}
       />
     </Layout>
   )
@@ -57,6 +61,13 @@ export const themePageQuery = graphql`
       html
       frontmatter {
         title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

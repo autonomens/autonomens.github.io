@@ -2,7 +2,7 @@
 templateKey: 'theme-page'
 path: /analyse
 title: Analyser vos données
-image: /img/smart.png
+image: /img/jumelles.png
 ---
 
 Datatheca vous permet d’analyser, de comparer et de simuler des projets grâce à la combinaison de vos données.

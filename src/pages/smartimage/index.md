@@ -1,7 +1,8 @@
 ---
-templateKey: 'about-page'
+templateKey: 'theme-page'
 path: /smartimage
 title: Analyse intelligente d’images
+image: /img/smart.png
 ---
 
 Datatheca a crée un service web intelligent pour l’analyse automatique d’images terrestres et satellitaires.

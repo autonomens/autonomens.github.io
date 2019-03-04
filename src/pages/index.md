@@ -42,11 +42,6 @@ intro:
       link: /smartimage
       text: >
         Datatheca a crée un service web intelligent pour l’analyse automatique d’images terrestres et satellitaires.
-    - image: /img/things.png
-      title: Architecture
-      link: /arch
-      text: >
-        Datatheca est construit selon une architecture modulaire conçue pour évoluer, être étendue et mise à jour régulièrement dès l’apparition de nouvelles bibliothèques.
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
