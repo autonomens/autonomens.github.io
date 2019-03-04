@@ -57,7 +57,7 @@ export const IndexPageTemplate = ({
           }}
         >
           <Link className="btn" to="/login">
-            Accéder à la plateforme
+            Accéder à la Datatheca
           </Link>
         </div>
       </div>
@@ -68,17 +68,17 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                {/*<div className="content">
+                <div className="content">
                   <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                    <h1 className="title has-text-weight-semibold is-size-2">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <p>{mainpitch.description}</p>
                   </div>
-        </div>*/}
+                </div>
                 <div className="columns">
                   <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
+                    <h3 className="is-size-2">
                       {subheading}
                     </h3>
                     <p>{description}</p>
@@ -171,6 +171,7 @@ export const pageQuery = graphql`
             }
             text
             title
+            link
           }
           heading
           description

@@ -55,17 +55,11 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/ialearning">
                 IA et machine learning
               </Link>
-              <Link className="navbar-item" to="/datatcience">
+              <Link className="navbar-item" to="/ialearning">
                 Data science
               </Link>
-              <Link className="navbar-item" to="/spatialdata">
-                Données spatiales
-              </Link>
-              <Link className="navbar-item" to="/dataxploration">
-                Exploration de données
-              </Link>
-              <Link className="navbar-item" to="/modelisation">
-                Modélisation
+              <Link className="navbar-item" to="/ialearning">
+                Data Managment
               </Link>
             </div>
             <div className="navbar-end has-text-centered">

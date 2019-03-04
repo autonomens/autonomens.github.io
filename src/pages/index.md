@@ -2,50 +2,51 @@
 templateKey: 'index-page'
 title: 'Des outils simples d’utilisation pour résoudre des problèmes concrets'
 image: /img/home-jumbotron.jpg
-heading: Une plateforme pour vos projets
-subheading: Une plateforme pour vos projets
+heading: Une suite d'applications pour vos projets
+subheading: Une suite d'applications pour vos projets
 description: >-
-  Autonomens is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+  Datatheca vous propose une suite d’applications pour la collecte, la gestion,
+  l’analyse, et le partage de données géographiques et photographiques.
+
+  Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
+
+  Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
+
 mainpitch:
-  title: Pourquoi choisir Autonomens ?
+  title: Pourquoi Datatheca ?
   description: >
-    Suline Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Datatheca vous propose une suite d’applications pour la collecte, la gestion, l’analyse, et le partage de données géographiques et photographiques.
+
+    Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
+    Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
+
 intro:
   blurbs:
-    - image: /img/graph.png
-      title: Dataviz
+    - image: /img/chart.png
+      title: Visualiser vos données
+      link: /dataviz
       text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
-    - image: /img/carto.png
-      title: 'Carte'
+        Le module d’exploration des données spatiales de Datatheca vous permet de créer des représentations cartographiques et de traiter des données spatiales.
+    - image: /img/jumelles.png
+      title: Analyser vos données
+      link: /analyse
       text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
-    - image: /img/tutorials.png
-      title: 'Machine learning'
+        Datatheca vous permet d’analyser, de comparer et de simuler des projets grâce à la combinaison de vos données.
+    - image: /img/map.png
+      title: Scénariser vos données
+      link: /scenar
       text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
-    - image: /img/meeting-space.png
-      title: 'Data science'
+        Datatheca propose un outil de valorisation de vos données pour réaliser des parcours thématiques, des animations mettant en valeur des commerces, des lieux, des points d’intérêts,…
+    - image: /img/smart.png
+      title: Analyse intelligente d’images
+      link: /smartimage
       text: >
-        We believe that good coffee has the power to bring people together.
-        That’s why we decided to turn a corner of our shop into a cozy meeting
-        space where you can hang out with fellow coffee lovers and learn about
-        coffee making techniques. All of the artwork on display there is for
-        sale. The full price you pay goes to the artist.
+        Datatheca a crée un service web intelligent pour l’analyse automatique d’images terrestres et satellitaires.
+    - image: /img/things.png
+      title: Architecture
+      link: /arch
+      text: >
+        Datatheca est construit selon une architecture modulaire conçue pour évoluer, être étendue et mise à jour régulièrement dès l’apparition de nouvelles bibliothèques.
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
