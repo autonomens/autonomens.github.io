@@ -26,13 +26,8 @@ const Footer = class extends React.Component {
                       </Link>
                     </li>
                     <li>
-                      <Link className="navbar-item" to="/about">
-                        À propos
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Produits
+                      <Link className="navbar-item" to="/login">
+                        Se connecter
                       </Link>
                     </li>
                   </ul>
@@ -41,14 +36,19 @@ const Footer = class extends React.Component {
               <div className="column is-6">
                 <section>
                   <ul className="menu-list">
+                    <li>               
+                      <a title="twitter" href="https://twitter.com/datatheca">
+                        <img
+                          className="fas fa-lg"
+                          src="/img/twitter.svg"
+                          alt="Twitter"
+                          style={{ width: '1em', height: '1em' }}
+                        />
+                      </a>
+                    </li>
                     <li>
                       <Link className="navbar-item" to="/contact">
                         Contact
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/ialearning">
-                        IA et machine learing
                       </Link>
                     </li>
                   </ul>
@@ -61,5 +61,7 @@ const Footer = class extends React.Component {
     );
   }
 };
+
+
 
 export default Footer;

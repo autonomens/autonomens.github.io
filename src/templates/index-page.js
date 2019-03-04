@@ -58,7 +58,7 @@ export const IndexPageTemplate = ({
           }}
         >
           <Link className="btn" to="/login">
-            Accéder à la Datatheca
+            Accéder à Datatheca
           </Link>
         </div>
       </div>
