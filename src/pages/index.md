@@ -95,7 +95,7 @@ pricing:
       price: '??'
 ---
 
-# Pourquoi Datatheca?
+# Pourquoi Datatheca ?
 
 Datatheca vous propose une suite d’applications pour la collecte, la gestion, l’analyse, et le partage de données géographiques et photographiques.
 
