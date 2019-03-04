@@ -5,21 +5,12 @@ image: /img/home-jumbotron.jpg
 heading: Une suite d'applications pour vos projets
 subheading: Une suite d'applications pour vos projets
 description: >-
-  Datatheca vous propose une suite d’applications pour la collecte, la gestion,
-  l’analyse, et le partage de données géographiques et photographiques.
-
-  Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
-
-  Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
+  empty
 
 mainpitch:
   title: Pourquoi Datatheca ?
   description: >
-    Datatheca vous propose une suite d’applications pour la collecte, la gestion, l’analyse, et le partage de données géographiques et photographiques.
-
-    Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
-    Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
-
+    empty
 intro:
   blurbs:
     - image: /img/chart.png
@@ -103,3 +94,26 @@ pricing:
       plan: Custom
       price: '??'
 ---
+
+# Pourquoi Datatheca?
+
+Datatheca vous propose une suite d’applications pour la collecte, la gestion, l’analyse, et le partage de données géographiques et photographiques.
+
+Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
+Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
+
+Ce principe est respecté notamment grâce à :
+
+- un studio visuel qui permet de paramétrer les comportements de l’application en utilisant une interface graphique
+- un requêteur graphique qui permettent d’élaborer des requêtes avancées sur les données, sans utiliser de SQL
+- des modèles de visualisations paramétrables adaptés à de nombreux cas d’utilisation
+
+# Une suite d'applications pour vos projets
+
+Datatheca se différencie par de nombreux aspects présents dans chacun des modules : 
+- des combinaisons de vues cartographies, spatio-temporelles, de graphiques et d’éditorial
+- la possibilité de scénariser l’exploration des données (storytelling)
+- un aspect graphique soigné
+- des interactions et ergonomie poussées
+
+Toutes nos solutions sont conçues pour intégrer des traitements écrits en Python, notamment des algorithmes de machine learning.

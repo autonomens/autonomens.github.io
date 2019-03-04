@@ -13,6 +13,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  html,
   main
 }) => (
   <div>
@@ -68,22 +69,7 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title has-text-weight-semibold is-size-2">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <p>{mainpitch.description}</p>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="is-size-2">
-                      {subheading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
+                  <div dangerouslySetInnerHTML={{__html: html}}/>
                 <Features gridItems={intro.blurbs} />
               </div>
             </div>
@@ -107,7 +93,7 @@ IndexPageTemplate.propTypes = {
 };
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter, html } = data.markdownRemark;
 
   return (
     <Layout>
@@ -119,6 +105,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        html={html}
       />
     </Layout>
   );
@@ -137,6 +124,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
         title
         image {

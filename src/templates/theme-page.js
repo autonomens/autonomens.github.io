@@ -13,9 +13,16 @@ export const ThemePageTemplate = ({ title, content, image, contentComponent }) =
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-              <div style={{width: '30%'}}>
+              {/*<div style={{
+                width: '100%',
+                height: '200px',
+                margin: '30px', 
+                display: 'flex', 
+                flexDirection:'column',
+                justifyContent:'center'
+              }}>
                 <PreviewCompatibleImage imageInfo={{image: image}}/>
-              </div>
+            </div>*/}
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
@@ -35,7 +42,6 @@ ThemePageTemplate.propTypes = {
 
 const ThemePage = ({ data }) => {
   const { markdownRemark: post } = data
-  console.log(post.frontmatter.image)
 
   return (
     <Layout>
