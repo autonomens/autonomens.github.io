@@ -15,10 +15,9 @@ Le module est construit autour d’un ensemble de connecteurs vers des sources d
 
 Quelques réalisations :
 
-- http://pacific-river-85981.herokuapp.com/#/environnement 
-- http://pacific-river-85981.herokuapp.com/#/environnement
-- http://pacific-river-85981.herokuapp.com/#/transports
-- http://pacific-river-85981.herokuapp.com/#/urbaine 
-- http://pacific-river-85981.herokuapp.com/#/migration 
-- http://pacific-river-85981.herokuapp.com/#/logistique 
-- http://pacific-river-85981.herokuapp.com/#/tourisme 
+- [Environnement](http://pacific-river-85981.herokuapp.com/#/environnement)
+- [Transport](http://pacific-river-85981.herokuapp.com/#/transports)
+- [Tissu urbain](http://pacific-river-85981.herokuapp.com/#/urbaine)
+- [Migration des ménages](http://pacific-river-85981.herokuapp.com/#/migration)
+- [Logistique](http://pacific-river-85981.herokuapp.com/#/logistique)
+- [Tourisme](http://pacific-river-85981.herokuapp.com/#/tourisme)

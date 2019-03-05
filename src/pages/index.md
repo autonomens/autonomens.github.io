@@ -100,7 +100,7 @@ pricing:
 Datatheca vous propose une suite d’applications pour la collecte, la gestion, l’analyse, et le partage de données géographiques et photographiques.
 
 Datatheca propose des applications en mode SaaS auxquelles vous souscrivez selon vos besoins, votre profil.
-Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni sans maîtriser la programmation.
+Datatheca vous permet d’exécuter des opérations avancées sans avoir à faire appel à des développeurs ni maîtriser la programmation.
 
 Ce principe est respecté notamment grâce à :
 

@@ -13,6 +13,6 @@ Datatheca permet aux experts-métier de construire un outil les aidant à traite
 
 Quelques réalisations :
 
-- https://uploads.knightlab.com/storymapjs/d686ee161af62bec9cd5b619ee44b3ff/tourisme-patrimoine/
-- https://uploads.knightlab.com/storymapjs/4197f5c7d80e76f0f236909bc3c461df/art/ 
-- https://uploads.knightlab.com/storymapjs/d686ee161af62bec9cd5b619ee44b3ff/tourisme-gastronomie/ 
+- [Tourisme & patrimoine](https://uploads.knightlab.com/storymapjs/d686ee161af62bec9cd5b619ee44b3ff/tourisme-patrimoine/)
+- [Art](https://uploads.knightlab.com/storymapjs/4197f5c7d80e76f0f236909bc3c461df/art/)
+- [Tourisme & gastronomie](https://uploads.knightlab.com/storymapjs/d686ee161af62bec9cd5b619ee44b3ff/tourisme-gastronomie/)
