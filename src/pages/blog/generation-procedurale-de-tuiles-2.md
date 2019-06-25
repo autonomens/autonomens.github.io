@@ -119,7 +119,7 @@ newlengthB := (length/5)*random();
 
 Les lignes stockées dans le champ 'way' sont ainsi traitées et enregistrées dans le champ 'long_way', qui sera appelé dans une couche sous TileMill.
 
-Après [quelques paramétrages de rendu sous TileMill](https://makina-corpus.com/blog/metier/2014/dessiner-une-ville-a-la-main-les-batiments) nous arrivons donc à ce résultat :
+Après [quelques paramétrages de rendu sous TileMill](https://datatheca.com/blog/generation-procedurale-de-tuiles-1) nous arrivons donc à ce résultat :
 
 ![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-decoupage-des-batiments)
 

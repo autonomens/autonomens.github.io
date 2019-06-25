@@ -9,10 +9,10 @@ tags:
   - traitement
 ---
 
-Dans le cadre du développement d'une application, nous avons du mettre un place un module de comparaison d'images deux à deux. Le principe du comparateur est simple et efficace : un pointeur simultané permet de se situer sur les deux images à la fois, accompagné d'un zoom (comme dans l'application [VuDuCiel](https://makina-corpus.com/realisations/conseil-general-de-loire-atlantique)). Pourtant, quelque chose nous dérange, du moins ne nous satisfait pas dans ce module. Les images ne sont en effet pas cadrées de la même manière entre deux prises de vue et le pointeur montre certes le même point en termes de position sur les images mais pas géographiquement parlant.
+Dans le cadre du développement d'une application, nous avons du mettre un place un module de comparaison d'images deux à deux. Le principe du comparateur est simple et efficace : un pointeur simultané permet de se situer sur les deux images à la fois, accompagné d'un zoom. Pourtant, quelque chose nous dérange, du moins ne nous satisfait pas dans ce module. Les images ne sont en effet pas cadrées de la même manière entre deux prises de vue et le pointeur montre certes le même point en termes de position sur les images mais pas géographiquement parlant.
 
 Pour contourner ce problème, nous nous sommes donc penchés sur le redressement d'images. Il s'agit de transformer une image - de la redresser - pour qu'elle soit superposable à une celle qui lui sert de modèle. Cela peut se faire simplement en détectant dans les deux images des points saillants qui vont servir de repères pour la transformation.  
-Le traitement est expliqué ci-dessous mais peut également être suivi via un notebook Jupyter disponible sur notre [GitHub](https://github.com/makinacorpus/tutorials/tree/master/images_adjustment). Nous utilisons Python mais plus particulièrement la bibliothèque [OpenCV](https://pypi.org/project/opencv-python/) pour arriver à bout du redressement.
+Nous utilisons Python mais plus particulièrement la bibliothèque [OpenCV](https://pypi.org/project/opencv-python/) pour arriver à bout du redressement.
 
 ![initial_images](https://makina-corpus.com/blog/metier/2019/redressement-dimage-images-de-depart-1)
 _Voici les images dans le module de comparaison : le curseur ne pointe pas sur les mêmes éléments entre les deux photographies. Nous allons utiliser image de gauche comme référence et l'image de droite va être redressée._
@@ -90,4 +90,4 @@ Ce traitement nous a permis de redresser notre image par rapport à une image de
 ![comparaison_finale](https://makina-corpus.com/blog/metier/2019/redressement-dimage-comparaison-finale)
 _Module de comparaison avec l'image redressée à droite._
 
-Le redressement d'images nous ouvre alors la porte vers de nombreuses applications : comparaison superposée, détection de changements automatique... Si l'une d'entre elles vous inspire ou si vous souhaitez de l'aide pour analyser et valoriser vos images, n'hésitez pas à <a href="mailto:contact@makina-corpus.com" class="btn">nous contacter</a> !
+Le redressement d'images nous ouvre alors la porte vers de nombreuses applications : comparaison superposée, détection de changements automatique... Si l'une d'entre elles vous inspire ou si vous souhaitez de l'aide pour analyser et valoriser vos images, n'hésitez pas à <a href="mailto:contact@autonomens.com" class="btn">nous contacter</a> !

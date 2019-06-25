@@ -20,13 +20,13 @@ Dans cet article, nous regarderons comment font les plateformes de datas-cience 
 
 Avant de commencer à développer, nous avons regardé l'état de l'art de la partie "import" des plateformes de Datascience, en suivant les recommandations annuelles de Gartner et en se concentrant sur les plateformes opensource ou gratuites :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/GartnerQuadrant.png)
+![](https://makina-corpus.com/blog/metier/2018/GartnerQuadrant.png)
 
 ## Dataiku
 
 Bien que non open-source, il existe une version gratuite de cette application. De celles que nous avons testé, c'est l'application qui propose la meilleure fonctionnalité d'import, à la fois en terme de format de fichiers supportés automatiquement et au niveau du parsing automatique des champs :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/Dataikufileformats.png)
+![](https://makina-corpus.com/blog/metier/2018/Dataikufileformats.png)
 
 Enfin, les performances et l'expérience utilisateur sont nettement supérieures aux autres applications.
 
@@ -34,7 +34,7 @@ Enfin, les performances et l'expérience utilisateur sont nettement supérieures
 
 Les types de données automatiquement reconnus par H20.ai sont plus limités :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/H20datatypes.png)
+![](https://makina-corpus.com/blog/metier/2018/H20datatypes.png)
 
 D'ailleurs, lors de l'import de notre fichier de test, la majorité des données ont été étiquetées "Enum".
 
@@ -73,20 +73,25 @@ Il y a tout de même un point sur lequel ces algorithmes nous ont inspiré : Wor
 Si nous n'utilisons pas d'algorithmes classiques de NLP, nous devons tout de même convertir les chaînes de caractères en vecteurs numériques, pour pouvoir les manipuler dans les algorithmes de machine learning.
 
 Nous générons une matrice indiquant pour chaque caractère sa place dans le fragment de texte analysé. Les colonnes de notre matrice correspondent aux différents caractères possibles, les lignes aux positions dans le texte. Par exemple, pour le mot Bac nous obtenons la matrice suivante :
-	a	b	c	[...]	Maj
-1	0	1	0	[...]	1
-2	1	0	0	[...]	0
-3	0	0	1	[...]	0
-4	0	0	0	[...]	0
-5	0	0	0	[...]	0
+
+|	a |	b |	c |	 |  [...]|Maj|
+|	- |	- |	- |	- |  -|-|
+|1	|0	|1	|0 |	[...]|	1|
+|2	|1	|0	|0 |	[...]|	0|
+|3	|0	|0	|1 |	[...]|	0|
+|4	|0	|0	|0 |	[...]|	0|
+|5	|0	|0	|0 |	[...]|	0|
+
+
+
 
 La dernière colonne nous permet d'indiquer si la lettre est une majuscule ou une minuscule. Le résultat peut également vu comme une image noire et blanc, où les pixels blancs correspondent aux caractères.
 
-![](https://edit.makina-corpus.com/blog/metier/2018/smart_importer_compagny_name_features-1)
+![](https://makina-corpus.com/blog/metier/2018/smart_importer_compagny_name_features-1)
 
 Exemple 1 : matrice obtenue pour le nom d'une entreprise (image originale x 16)
 
-![](https://edit.makina-corpus.com/blog/metier/2018/smart_importer_date_features)
+![](https://makina-corpus.com/blog/metier/2018/smart_importer_date_features)
 
 Exemple 2 : matrice obtenue pour une date (image originale x 16)
 
@@ -95,11 +100,11 @@ Les deux exemples ci-dessus nous montrent que ce descripteur permet de distingue
 
 ## Tests des algorithmes
 
-![](https://edit.makina-corpus.com/blog/metier/2018/XKCD1838MachineLearning.png)
+![](https://makina-corpus.com/blog/metier/2018/XKCD1838MachineLearning.png)
 
 Ici, nous cherchons à déterminer le type de n'importe quelle donnée du fichier, nous pensons donc naturellement utiliser des algorithmes de classification. Mais il en existe de très nombreux. Scikit-learn, notre framework de prédilection, fournit d'ailleurs une aide au choix de l'algorithme :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/sklearnclassificationalgorithms.png)
+![](https://makina-corpus.com/blog/metier/2018/sklearnclassificationalgorithms.png)
 
 ## Baseline
 
@@ -115,7 +120,7 @@ En pratique, pour une baseline réaliste, on utilise plutôt un algorithme Baysi
 
 Voici la première **matrice de confusion** que nous avons obtenue :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/Matricedeconfusion.png)
+![](https://makina-corpus.com/blog/metier/2018/Matricedeconfusion.png)
 
 Ensuite,  nous avons testé SVM, considéré comme le plus efficace pour classifier du texte. Nous sommes arrivés à plus de 80% de précision.
 
@@ -125,43 +130,34 @@ Nous avons fini par tester tous les classifieurs fournis par Scikit-learn, plus 
 
 Note : ici, c'était plus par curiosité, ce n'est bien sûr pas à faire : chaque classifieur a une raison d'utilisation (par exemple, l'algorithme GaussianNB est à utiliser si les features ont une distribution Gaussienne, ce qui n'est pas forcément le cas ici). Voilà une illustration des différences entre les classifieurs implémentés par scikit-learn :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/sphx_glr_plot_classifier_comparison_001.png)
+![](https://makina-corpus.com/blog/metier/2018/sphx_glr_plot_classifier_comparison_001.png)
 
 Voilà les résultats obtenus :
 
-Classifieur
-	
-
-Temps
-
-d'entraînement
-	
-
-Précision moyenne
-
-(95 % de confiance)
-ExtraTreesClassifier	~ 1 s	0.85 (+/- 0.07)
-RandomForestClassifier	~ 1 s	0.83 (+/- 0.07)
-LinearSVC	~ 3 s	0.83 (+/- 0.07)
-MLPClassifier	~ 17 s	0.83 (+/- 0.07)
-ExtraTreeClassifier	< 1 s	0.83 (+/- 0.06)
-DecisionTreeClassifier	~ 2 s	0.83 (+/- 0.06)
-BaggingClassifier	~ 5 s	0.82 (+/- 0.07)
-XGBoostClassifier	> 10 min	0.82 (+/- 0.08)
-SGDClassifier	~ 3 s	0.81 (+/- 0.07)
-BernoulliNB	< 1 s	0.74 (+/- 0.12)
-MultinomialNB	< 1 s	0.72 (+/- 0.10)
-KneighborsClassifier	~ 1 min 30 s	0.70 (+/- 0.09)
-GaussianNB	~ 1 s	0.58 (+/- 0.18)
+| Classifieur | Temps d'entraînement | Précision moyenne (95 % de confiance)|
+| ---------- | ----------------------| ---  |
+|ExtraTreesClassifier|	~ 1 s	|0.85 (+/- 0.07)|
+|RandomForestClassifier|	~ 1 s	|0.83 (+/- 0.07)|
+|LinearSVC|	~ 3 s	|0.83 (+/- 0.07)|
+|MLPClassifier|	~ 17 s	|0.83 (+/- 0.07)|
+|ExtraTreeClassifier|	< 1 s	|0.83 (+/- 0.06)|
+|DecisionTreeClassifier|	~ 2 s	|0.83 (+/- 0.06)|
+|BaggingClassifier|	~ 5 s	|0.82 (+/- 0.07)|
+|XGBoostClassifier|	> 10 min	|0.82 (+/- 0.08)|
+|SGDClassifier|	~ 3 s	|0.81 (+/- 0.07)|
+|BernoulliNB|	< 1 s	|0.74 (+/- 0.12)|
+|MultinomialNB|	< 1 s	|0.72 (+/- 0.10)|
+|KneighborsClassifier|	~ 1 min 30 s	|0.70 (+/- 0.09)|
+|GaussianNB|	~ 1 s	|0.58 (+/- 0.18)|
 
 Les enseignements que nous avons tiré :
 
 - Les algorithmes baysiens naïfs sont en effet les plus rapides (et pas si mauvais) ;
 - SVM (ici LinearSVC) est effectivement plus efficace, et les performances se tiennent avec les autres algorithmes ;
 - Nous avons également tenté d'utiliser de l'apprentissage profond, mais ici, ça n'a pas fonctionné mieux que SVM. Nous n'avons pas tout construit nous-mêmes, mais utlisé les fonctionnalités de scikit-learn : les lettres MLP dans le MLPClassifier signifient "Multi Layer Perceptron", c'est-à-dire un réseau de neurones relativement simple dans son fonctionnement :
-![](https://edit.makina-corpus.com/blog/metier/2018/MLP.jpg)
+![](https://makina-corpus.com/blog/metier/2018/MLP.jpg)
 - La plupart des matrices de confusion se ressemblent, mais certaines permettent de mettre en avant un problème précis pour un algorithme, nous permettant de l'éliminer. Voici un exemple de matrice avec un problème spécifique sur une des classes qui nous a conduit à éliminer cet algorithme :
-![](https://edit.makina-corpus.com/blog/metier/2018/Mauvaisematricedeconfusion.png)
+![](https://makina-corpus.com/blog/metier/2018/Mauvaisematricedeconfusion.png)
 
 Le mauvais classement d'une classe précise (au milieu à droite) a disqualifié directement l'algorithme, malgré sa précision globale.
 
@@ -169,13 +165,13 @@ Le mauvais classement d'une classe précise (au milieu à droite) a disqualifié
 
 Bien que nous soyons satisfaits des résultats précédents, nous avons décidé de tester auto-sklearn. Cette bibliothèque d'Automatic Machine Learning choisit seule le(s) meilleur(s) algorithme(s) et le(s) meilleur(s) paramétrage(s) pour cet algorithme :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/autosklearnoverview.jpg)
+![](https://makina-corpus.com/blog/metier/2018/autosklearnoverview.jpg)
 
 Étant pleinement compatible avec scikit-learn, très peu de code est à changer pour l'utiliser.
 
 Nous avons également testé, toujours dans le domaine de l'Auto-ML, l'algorithme TPOT. La principale différence avec auto-sklearn réside dans la méthode d'optimisation : là où auto-sklearn utilise une optimisation baysienne, TPOT utilise une méthode basée sur de la programmation génétique afin d'indiquer la meilleure suite d'algorithmes à utiliser :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/tpotmlpipeline.png)
+![](https://makina-corpus.com/blog/metier/2018/tpotmlpipeline.png)
 
 Là où auto-sklearn génère un fichier .json indiquant les pipelines retenus, TPOT va jusquà générer le code Python permettant l'exécution du meilleur pipeline.
 
@@ -202,10 +198,13 @@ Inspirés par ce très bon article sur le sujet [EN] (à lire avant d'aller plus
 ## Transformation du texte en features
 
 D'abord, nous avons tenté d'exprimer nos features différemment, en indiquant directement la position de chaque caractère (toujours pour le mot Bac) :
-|   |a| b|  c|  [...]
-|1	|2|	1|	3|	[...]
-|2	|0|	0|	0|	[...]
-|3	|0|	0|	0|	[...]
+
+|   | a | b|  c|  [...]|
+|---|---|--|---|-------|
+|1	| 2 |	1|	3|	[...]|
+|2	| 0 |	0|	0|	[...]|
+|3	| 0 |	0|	0|	[...]|
+
 
 Nous n'avons pas réussi à améliorer la précision de notre classifieur avec cette modification.
 
@@ -229,9 +228,9 @@ Nous avons cherché à comprendre les prédictions de nos modèles (même si ell
 
 Il existe plusieurs bibliothèques en Python sur le sujet, et nous avons notammé considéré Lime (pour Local Interpretable Model-agnostic Explanations) et SHAP (pour SHapley Additive exPlanations).
 
-Voilà le résultat obtenu pour l'analyse d'un résultat sur Lime : on observe la corrélation entre nos features (ici, numériques, comme vu plus haut (résultat de la décomposition de l'élément de texte en matrice de caractères) et la prédiction donnée par le classifieur :
+Voilà le résultat obtenu pour l'analyse d'un résultat sur Lime : on observe la corrélation entre nos features ici, numériques, comme vu plus haut (résultat de la décomposition de l'élément de texte en matrice de caractères) et la prédiction donnée par le classifieur :
 
-![](https://edit.makina-corpus.com/blog/metier/2018/Lime.png)
+![](https://makina-corpus.com/blog/metier/2018/Lime.png)
 
 ## Reste à faire
 
