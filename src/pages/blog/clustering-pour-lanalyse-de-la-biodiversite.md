@@ -12,7 +12,7 @@ Depuis quelques années des initiatives internationales se mettent en place pour
 
 La conception d'interfaces facilitant la recherche de données scientifiques ainsi que leur analyse est un domaine dans lequel de nombreuses avancées peuvent encore être effectuées. Aujourd'hui, nous allons nous pencher sur l'utilisation d'algorithmes de clustering pour proposer un regroupement pertinent des données avant de les afficher sur une carte.
 
-![](https://makina-corpus.com/blog/metier/2018/Results.png)
+![](/img/blog/Results.png)
 
 ## Le clustering dans les grandes lignes
 
@@ -54,11 +54,11 @@ et prenons un cas concret avec :
 
 À vol d'oiseau ces deux endroits ne sont pas très loin :
 
-![](https://makina-corpus.com/blog/metier/2018/kmeans_bug.jpg)
+![](/img/blog/kmeans_bug.jpg)
 
 Mais comme nous passons d'une longitude négative à une longitude positive, la distance euclidienne nous donne une valeur supérieure à 328. De manière plus concrète, c'est comme si notre oiseau ne partait pas dans la bonne direction :
 
-![](https://makina-corpus.com/blog/metier/2018/kmeans_bug2.jpg)
+![](/img/blog/kmeans_bug2.jpg)
 
 Heureusement il existe d'autres méthodes de calculs de distances possibles, capable de manipuler des données angulaires. Cependant ces dernières ne sont pas utilisables avec k-means.
 
@@ -80,7 +80,7 @@ Pour comprendre le principe de HDBSCAN, prenons un cas concret, le Moloch horrid
 
 L'[Atlas of Living Australia](https://regions.ala.org.au/#rt=States+and+territories) nous permet de récupérer presque 2000 observations de la bêbête et d'en observer la répartition sur une carte :
 
-![](https://makina-corpus.com/blog/metier/2018/DiableCornusRep.gif)
+![](/img/blog/DiableCornusRep.gif)
 
 Ces observations peuvent par exemple être réparties en trois ensembles avec :
 
@@ -108,13 +108,13 @@ Plus vous prenez en compte de voisins, plus vous aurez tendance à augmenter les
 
 Troisième étape : construire un arbre couvrant à partir des données. Pour cela supposons que chacune des observations correspond au sommet d'un graphe. Ces sommets sont reliés entre eux par des arêtes pondérées, où la pondération est la distance d_new entre ces deux données.
 
-![](https://makina-corpus.com/blog/metier/2018/copy4_of_graph_ex.png)
+![](/img/blog/copy4_of_graph_ex.png)
 
 Un exemple de graphe pondéré : plus les arêtes sont fines, plus les sommets sont distants.
 
 À partir de ce graphe HBDSCAN recherche un arbre couvrant (ou plus précisément un sous ensemble des arêtes) de manière à ce que tous les sommets soient connectés et qu'il n'y ait pas de cycle (de boucle) entre plusieurs sommets. En voici un exemple :
 
-![](https://makina-corpus.com/blog/metier/2018/copy2_of_arbre_couvrant_ex.png)
+![](/img/blog/copy2_of_arbre_couvrant_ex.png)
 
 Malgré cette première règle, il existe encore de nombreuses possibilités d'arbres couvrants. HBDSCAN va en construire un de manière à ce que la somme des pondérations des arêtes soit minimale.
 
@@ -122,7 +122,7 @@ Malgré cette première règle, il existe encore de nombreuses possibilités d'a
 
 Une fois l'arbre couvrant trouvé, HBDSCAN va regrouper les données en ensembles hiérarchisés. Il commence par trier les arêtes dans l'ordre décroissant. Il sélectionne la première arête, celle pour laquelle la distance est maximale et fusionne les deux sommets dans un même ensemble.
 
-![](https://makina-corpus.com/blog/metier/2018/copy_of_dendrogrammeRe.png)
+![](/img/blog/copy_of_dendrogrammeRe.png)
 *Le résultat correspondant à l'arbre couvrant précédent.*
 
 ## Condenser les ensembles
@@ -144,7 +144,7 @@ Une fois le clustering hiérarchique des ensembles établi, il convient de disti
 
 Pour déterminer cette durée de vie, il est nécessaire de définir pour un ensemble donné le moment de naissance λ(birth) jusqu'à sa prochaine division λ(death). Avec ces données, il est désormais possible de calculer la stabilité d'un ensemble selon la formule :
 
-![](https://makina-corpus.com/blog/metier/2018/formuleStabilite.png)
+![](/img/blog/formuleStabilite.png)
 
 Ainsi pour chaque lien horizontal hiérachique, la somme de la stabilité du groupe et de ses descendants est calculée et si la stabilité d'un ensemble est supérieure à la somme de ses descendants alors c'est un ensemble.
 
@@ -152,21 +152,21 @@ Ainsi pour chaque lien horizontal hiérachique, la somme de la stabilité du gro
 
 Avec un échantillon de N = 400 observations de Moloch horridus, nous avons choisi une valeur minimale de taille de clusters m = 22.
 
-![](https://makina-corpus.com/blog/metier/2018/Observation.png)
+![](/img/blog/Observation.png)
 
 À partir de ces données, chacune des cinq étapes décrites précédement a été réalisée.
 
-![](https://makina-corpus.com/blog/metier/2018/SpanningTreeEuclidienne.png)
+![](/img/blog/SpanningTreeEuclidienne.png)
 
 Dans le cas de la première figure, la distance euclidienne a été utilisée pour calculer la densité. La seconde figure utilise quant à elle la formule de Haversine pour calculer la distance entre deux points (et donc la densité pour chaque point). La différence entre ces deux figures illustrent l'impact du choix de la distance dans la construction des ensembles.
 
 *N.B.* Les résultats suivant du clustering ont été calculés uniquement avec la distance haversine.
 
-![](https://makina-corpus.com/blog/metier/2018/HierarchieClustering.png)
+![](/img/blog/HierarchieClustering.png)
 
 Une fois ces deux graphiques réalisés, la sélection des ensembles est effectuée. Au final, quatre clusters ont été trouvés. Il reste donc maintenant à afficher ces ensembles sur la carte.
 
-![](https://makina-corpus.com/blog/metier/2018/Clusters.png)
+![](/img/blog/Clusters.png)
 
 ## Choix du paramètre m
 
@@ -176,7 +176,7 @@ Contrairement à k-means, il n'existe pas à ce jour de méthodes heuristiques o
 
 Néanmoins, il existe un phénomène de convergence suivi d'une perte d'informations. En effet en augmentant progressivement le paramètre _m_, on remarque une stagnation du nombre d'ensembles trouvés. De même, une diminution de la taille des ensembles est visible. De plus en plus de points sont considérés comme du bruit.
 
-![](https://makina-corpus.com/blog/metier/2018/ResultDefault.png)
+![](/img/blog/ResultDefault.png)
 
 Pour autant, l'atteinte de ce palier ne garantit pas que le nombre d'ensembles trouvés soit optimal.
 

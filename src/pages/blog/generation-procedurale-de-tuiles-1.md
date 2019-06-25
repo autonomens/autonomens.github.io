@@ -18,7 +18,7 @@ Lorsqu'on dessine une carte à la main on va forcément perdre des détails, dé
 
 En utilisant des moteurs de rendu, les tracés sont rectilignes, les fonds de couleur unis :
 
-![Contours unis](https://makina-corpus.com/blog/metier/images/dessin-toulouse-rendu-de-base)
+![](/img/blog/dessin-toulouse-rendu-de-base.jpeg)
 
 J'ai voulu automatiser un aspect manuel, en 4 étapes :
 
@@ -40,7 +40,7 @@ line-opacity: 0.5;
 line-smooth: 0.8;
 ```
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-effet-line-smooth)
+![](/img/blog/dessin-toulouse-effet-line-smooth.jpeg)
 
 ## Le tracé à la règle des contours de bâtiments
 
@@ -50,13 +50,13 @@ Ces nouvelles linestring sont enregistrées dans une table. L'emprise de la zone
 
 J'applique à ces lignes une fonction PostGIS qui les agrandit, de manière à ce qu'elles dépassent. Une valeur aléatoire est utilisée pour parvenir à l'imperfection recherchée (plus d'informations à ce propos dans le post "Découper 340 000 polygones").
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-decoupage-des-batiments)
+![](/img/blog/dessin-toulouse-decoupage-des-batiments.jpeg)
 
 ## Le coloriage
 
 Je crée une trame de fond de crayonnage en niveaux de gris et gestion de la transparence, avec GIMP (en m'aidant d'un [tutoriel](http://ladyvlana.free.fr/tutoriel-gimp-texture/tutoriel-gimp-texture-papier-01.php)) :
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-texture-de-fond)
+![](/img/blog//dessin-toulouse-texture-de-fond.jpeg)
 
 Les couleurs de fond (en fonction du type de bâtiment) donnent ensuite l'illusion d'un coloriage réalisé avec des crayons classiques :
 

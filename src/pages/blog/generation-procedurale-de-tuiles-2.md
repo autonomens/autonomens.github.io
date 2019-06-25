@@ -121,5 +121,5 @@ Les lignes stockées dans le champ 'way' sont ainsi traitées et enregistrées d
 
 Après [quelques paramétrages de rendu sous TileMill](https://datatheca.com/blog/generation-procedurale-de-tuiles-1) nous arrivons donc à ce résultat :
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-decoupage-des-batiments)
+![](/img/blog/dessin-toulouse-decoupage-des-batiments.jpeg)
 

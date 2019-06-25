@@ -29,7 +29,7 @@ FROM (SELECT * FROM planet_osm_polygon WHERE landuse IS NOT NULL) as zones
 
 Je crée des textures sous GIMP que j'applique aux couches concernées.
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-zones-trames)
+![](/img/blog/dessin-toulouse-zones-trames.jpeg)
 
 Les bords sont trop rectilignes, j'ajoute deux contours avec du line-smooth afin de casser cela :
 
@@ -51,17 +51,17 @@ Les bords sont trop rectilignes, j'ajoute deux contours avec du line-smooth afin
 }
 ```
 
-![](https://makina-corpus.com/blog/metier/images/copy_of_dessintlsart3zonestramescontours.jpg)
+![](/img/blog/copy_of_dessintlsart3zonestramescontours.jpg)
 
 ## Affichage des cours d'eau
 
 Sans intervention ces tracés sont très rectilignes. Ce sont sans doute les plus difficiles à « casser ». Etant donné que les cours d'eau ont tendance à traverser une carte entière, ils attirent davantage l'attention que des éléments plus ponctuels.
 
-![](https://makina-corpus.com/blog/metier/images/dessintlsart3eaux.jpg)
+![](/img/blog/dessintlsart3eaux.jpg)
 
 Plutôt qu'appliquer une couleur de fond, je crée une nouvelle texture de crayonnage, beaucoup moins dense :
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-eaux-textures)
+![](/img/blog/dessin-toulouse-eaux-textures.jpeg)
 
 Le résultat ne plaît pas encore : les bords sont trop lisses. Je crée donc une deuxième requête PostGIS, pour appeler les mêmes données avec un buffer :
 
@@ -71,15 +71,15 @@ SELECT ST_Buffer(way,50) as way, waterway AS type FROM planet_osm_polygon WHERE 
 
 J'applique à cette couche une nouvelle texture basée sur la première, mais encore plus légère :
 
-![](https://makina-corpus.com/blog/metier/images/dessintlsart3eauxtexturesbuffer.jpg)
+![](/img/blog/dessintlsart3eauxtexturesbuffer.jpg)
 
 J'arrive ainsi au résultat que je cherche : la reproduction d'un crayonnage rapide, débordant des limites d'origine. Je n'ai ensuite plus qu'à appliquer un contour.
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-eaux-contours)
+![](/img/blog/dessin-toulouse-eaux-contours.jpeg)
 
 Je peux maintenant assembler toutes les données sélectionnées : types d'occupation des sols, cours d'eau, bâtiments...
 
-![](https://makina-corpus.com/blog/metier/images/dessin-toulouse-final)
+![](/img/blog/dessin-toulouse-final.jpeg)
 
 
 

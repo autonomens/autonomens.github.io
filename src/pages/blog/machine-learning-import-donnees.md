@@ -20,13 +20,13 @@ Dans cet article, nous regarderons comment font les plateformes de datas-cience 
 
 Avant de commencer à développer, nous avons regardé l'état de l'art de la partie "import" des plateformes de Datascience, en suivant les recommandations annuelles de Gartner et en se concentrant sur les plateformes opensource ou gratuites :
 
-![](https://makina-corpus.com/blog/metier/2018/GartnerQuadrant.png)
+![](/img/blog/GartnerQuadrant.png)
 
 ## Dataiku
 
 Bien que non open-source, il existe une version gratuite de cette application. De celles que nous avons testé, c'est l'application qui propose la meilleure fonctionnalité d'import, à la fois en terme de format de fichiers supportés automatiquement et au niveau du parsing automatique des champs :
 
-![](https://makina-corpus.com/blog/metier/2018/Dataikufileformats.png)
+![](/img/blog/Dataikufileformats.png)
 
 Enfin, les performances et l'expérience utilisateur sont nettement supérieures aux autres applications.
 
@@ -34,7 +34,7 @@ Enfin, les performances et l'expérience utilisateur sont nettement supérieures
 
 Les types de données automatiquement reconnus par H20.ai sont plus limités :
 
-![](https://makina-corpus.com/blog/metier/2018/H20datatypes.png)
+![](/img/blog/H20datatypes.png)
 
 D'ailleurs, lors de l'import de notre fichier de test, la majorité des données ont été étiquetées "Enum".
 
@@ -87,11 +87,11 @@ Nous générons une matrice indiquant pour chaque caractère sa place dans le fr
 
 La dernière colonne nous permet d'indiquer si la lettre est une majuscule ou une minuscule. Le résultat peut également vu comme une image noire et blanc, où les pixels blancs correspondent aux caractères.
 
-![](https://makina-corpus.com/blog/metier/2018/smart_importer_compagny_name_features-1)
+![](/img/blog/smart_importer_compagny_name_features-1)
 
 Exemple 1 : matrice obtenue pour le nom d'une entreprise (image originale x 16)
 
-![](https://makina-corpus.com/blog/metier/2018/smart_importer_date_features)
+![](/img/blog/smart_importer_date_features)
 
 Exemple 2 : matrice obtenue pour une date (image originale x 16)
 
@@ -100,11 +100,11 @@ Les deux exemples ci-dessus nous montrent que ce descripteur permet de distingue
 
 ## Tests des algorithmes
 
-![](https://makina-corpus.com/blog/metier/2018/XKCD1838MachineLearning.png)
+![](/img/blog/XKCD1838MachineLearning.png)
 
 Ici, nous cherchons à déterminer le type de n'importe quelle donnée du fichier, nous pensons donc naturellement utiliser des algorithmes de classification. Mais il en existe de très nombreux. Scikit-learn, notre framework de prédilection, fournit d'ailleurs une aide au choix de l'algorithme :
 
-![](https://makina-corpus.com/blog/metier/2018/sklearnclassificationalgorithms.png)
+![](/img/blog/sklearnclassificationalgorithms.png)
 
 ## Baseline
 
@@ -120,7 +120,7 @@ En pratique, pour une baseline réaliste, on utilise plutôt un algorithme Baysi
 
 Voici la première **matrice de confusion** que nous avons obtenue :
 
-![](https://makina-corpus.com/blog/metier/2018/Matricedeconfusion.png)
+![](/img/blog/Matricedeconfusion.png)
 
 Ensuite,  nous avons testé SVM, considéré comme le plus efficace pour classifier du texte. Nous sommes arrivés à plus de 80% de précision.
 
@@ -130,7 +130,7 @@ Nous avons fini par tester tous les classifieurs fournis par Scikit-learn, plus 
 
 Note : ici, c'était plus par curiosité, ce n'est bien sûr pas à faire : chaque classifieur a une raison d'utilisation (par exemple, l'algorithme GaussianNB est à utiliser si les features ont une distribution Gaussienne, ce qui n'est pas forcément le cas ici). Voilà une illustration des différences entre les classifieurs implémentés par scikit-learn :
 
-![](https://makina-corpus.com/blog/metier/2018/sphx_glr_plot_classifier_comparison_001.png)
+![](/img/blog/sphx_glr_plot_classifier_comparison_001.png)
 
 Voilà les résultats obtenus :
 
@@ -155,9 +155,9 @@ Les enseignements que nous avons tiré :
 - Les algorithmes baysiens naïfs sont en effet les plus rapides (et pas si mauvais) ;
 - SVM (ici LinearSVC) est effectivement plus efficace, et les performances se tiennent avec les autres algorithmes ;
 - Nous avons également tenté d'utiliser de l'apprentissage profond, mais ici, ça n'a pas fonctionné mieux que SVM. Nous n'avons pas tout construit nous-mêmes, mais utlisé les fonctionnalités de scikit-learn : les lettres MLP dans le MLPClassifier signifient "Multi Layer Perceptron", c'est-à-dire un réseau de neurones relativement simple dans son fonctionnement :
-![](https://makina-corpus.com/blog/metier/2018/MLP.jpg)
+![](/img/blog/MLP.jpg)
 - La plupart des matrices de confusion se ressemblent, mais certaines permettent de mettre en avant un problème précis pour un algorithme, nous permettant de l'éliminer. Voici un exemple de matrice avec un problème spécifique sur une des classes qui nous a conduit à éliminer cet algorithme :
-![](https://makina-corpus.com/blog/metier/2018/Mauvaisematricedeconfusion.png)
+![](/img/blog/Mauvaisematricedeconfusion.png)
 
 Le mauvais classement d'une classe précise (au milieu à droite) a disqualifié directement l'algorithme, malgré sa précision globale.
 
@@ -165,13 +165,13 @@ Le mauvais classement d'une classe précise (au milieu à droite) a disqualifié
 
 Bien que nous soyons satisfaits des résultats précédents, nous avons décidé de tester auto-sklearn. Cette bibliothèque d'Automatic Machine Learning choisit seule le(s) meilleur(s) algorithme(s) et le(s) meilleur(s) paramétrage(s) pour cet algorithme :
 
-![](https://makina-corpus.com/blog/metier/2018/autosklearnoverview.jpg)
+![](/img/blog/autosklearnoverview.jpg)
 
 Étant pleinement compatible avec scikit-learn, très peu de code est à changer pour l'utiliser.
 
 Nous avons également testé, toujours dans le domaine de l'Auto-ML, l'algorithme TPOT. La principale différence avec auto-sklearn réside dans la méthode d'optimisation : là où auto-sklearn utilise une optimisation baysienne, TPOT utilise une méthode basée sur de la programmation génétique afin d'indiquer la meilleure suite d'algorithmes à utiliser :
 
-![](https://makina-corpus.com/blog/metier/2018/tpotmlpipeline.png)
+![](/img/blog/tpotmlpipeline.png)
 
 Là où auto-sklearn génère un fichier .json indiquant les pipelines retenus, TPOT va jusquà générer le code Python permettant l'exécution du meilleur pipeline.
 
@@ -230,7 +230,7 @@ Il existe plusieurs bibliothèques en Python sur le sujet, et nous avons notamm�
 
 Voilà le résultat obtenu pour l'analyse d'un résultat sur Lime : on observe la corrélation entre nos features ici, numériques, comme vu plus haut (résultat de la décomposition de l'élément de texte en matrice de caractères) et la prédiction donnée par le classifieur :
 
-![](https://makina-corpus.com/blog/metier/2018/Lime.png)
+![](/img/blog/Lime.png)
 
 ## Reste à faire
 

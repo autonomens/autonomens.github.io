@@ -14,7 +14,7 @@ Dans le cadre du développement d'une application, nous avons du mettre un place
 Pour contourner ce problème, nous nous sommes donc penchés sur le redressement d'images. Il s'agit de transformer une image - de la redresser - pour qu'elle soit superposable à une celle qui lui sert de modèle. Cela peut se faire simplement en détectant dans les deux images des points saillants qui vont servir de repères pour la transformation.  
 Nous utilisons Python mais plus particulièrement la bibliothèque [OpenCV](https://pypi.org/project/opencv-python/) pour arriver à bout du redressement.
 
-![initial_images](https://makina-corpus.com/blog/metier/2019/redressement-dimage-images-de-depart-1)
+![initial_images](/img/blog/redressement-dimage-images-de-depart-1.png)
 _Voici les images dans le module de comparaison : le curseur ne pointe pas sur les mêmes éléments entre les deux photographies. Nous allons utiliser image de gauche comme référence et l'image de droite va être redressée._
 
 ## Première étape : les points saillants
@@ -35,7 +35,7 @@ Dans le code ci-dessous, `im_ref` et `im` font référence à nos deux images de
 
 Les variables `kpX` et `desX` correspondent respectivement aux points saillants sur l'image X (kp = _keypoint_) et à leur descripteur associé (des = _descriptor_).
 
-![detected_keypoints](https://makina-corpus.com/blog/metier/2019/redressement-dimage-points-cles)
+![detected_keypoints](/img/blog/redressement-dimage-points-cles.png)
 _Points saillants détectés_
 
 ## Association des points saillants
@@ -63,7 +63,7 @@ OpenCV propose, entres autres, _Brute-Force matcher_, un algorithme assez simple
     good_kp = np.array([kp[match.queryIdx].pt for match in good_matches])
     good_kp_ref = np.array([kp_ref[match.trainIdx].pt for match in good_matches])
 
-![matching_keypoints](https://makina-corpus.com/blog/metier/2019/redressement-dimage-matching)
+![matching_keypoints](/img/blog/redressement-dimage-matching.png)
 _Association des points saillants entre deux images_
 
 ## Finalement, le redressement
@@ -80,14 +80,14 @@ Appliquons la transformation homographique à l'image qui doit être redressée 
 Dans le code ci-dessus, `w` et `h` représentent la largeur (_width_) et la hauteur (_height_) de sortie de l'image transformée. 
 La première étape est de trouver, à partir des points saillants associés précédemment, la matrice définissant l'homographie. L'algorithme RANSAC (Random Sample Consensus) est ici appelé pour supprimer les éventuelles associations aberrantes. Le paramètre égal à `5.0` correspond à la tolérance de l'algorithme RANSAC pour détecter ces associations. Nous obtenons alors la matrice de transformation `m`.  Celle-ci nous permet alors de passer à la deuxième étape, l'application de l'homographie sur l'image !
 
-![redressement](https://makina-corpus.com/blog/metier/2019/redressement-dimage-overlay)
+![redressement](/img/blog/redressement-dimage-overlay.png)
 _Superposition des images avant redressement (à gauche) et après redressement (à droite)_
 
 ## Conclusion
 
 Ce traitement nous a permis de redresser notre image par rapport à une image de référence afin d'avoir un cadrage similaire. Voici un aperçu du module de comparaison avec l'image redressée, le curseur pointe bien sur le même élément dans les deux images :
 
-![comparaison_finale](https://makina-corpus.com/blog/metier/2019/redressement-dimage-comparaison-finale)
+![comparaison_finale](/img/blog/redressement-dimage-comparaison-finale.png)
 _Module de comparaison avec l'image redressée à droite._
 
 Le redressement d'images nous ouvre alors la porte vers de nombreuses applications : comparaison superposée, détection de changements automatique... Si l'une d'entre elles vous inspire ou si vous souhaitez de l'aide pour analyser et valoriser vos images, n'hésitez pas à <a href="mailto:contact@autonomens.com" class="btn">nous contacter</a> !
