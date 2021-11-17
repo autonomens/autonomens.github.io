@@ -2,12 +2,6 @@ import React from 'react';
 import { navigate } from 'gatsby-link';
 import Layout from '../../components/Layout';
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-}
-
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -21,10 +15,10 @@ export default class Index extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    fetch('/', {
+    fetch('https://hook.integromat.com/v3bk1jmujlv9s55rgts4ao1p2kcinosj', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         'form-name': form.getAttribute('name'),
         ...this.state
       })
@@ -44,11 +38,8 @@ export default class Index extends React.Component {
                 name="contact"
                 method="post"
                 action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />
                 <div hidden>
                   <label>
