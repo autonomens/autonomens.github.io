@@ -23,11 +23,8 @@ Celle-ci va enchainer les actions suivantes :
   _Vide le cache des précédents builds._
 - `gatsby build`  
   _Génère la version statique du site à partir de la branche actuelle._
-- `gh-pages deploy`  
-  _Crée un nouveau commit sur la branche `master`, contenant la version
-  compilée, et pousse la branche master vers le dépôt distant._
 
 ## Déploiement vers autonomens.netlify.com
 
 Ce déploiement est automatique chaque fois que la branche `source` est mise à
-jour, indépendemment du contenu de a branche `master`.
+jour, indépendamment du contenu de a branche `master`.
